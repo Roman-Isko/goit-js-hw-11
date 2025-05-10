@@ -1,0 +1,71 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form {
+    background-color: white;
+    padding: 24px 32px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+label,
+legend {
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: block;
+    color: #333;
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 14px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border 0.2s ease-in-out;
+}
+
+input[type="number"]:focus {
+    border-color: #2684ff;
+    outline: none;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 16px 0;
+}
+
+fieldset label {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 14px;
+}
+
+input[type="radio"] {
+    margin-right: 4px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    background-color: #2684ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button[type="submit"]:hover {
+    background-color: #1a6fe0;
+}
