@@ -1,27 +1,39 @@
+// src/js/render-functions.js
+
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const galleryContainer = document.querySelector('.gallery');
-const loader = document.querySelector('.loader');
+const loader = document.querySelector('.loader'); // Додай <span class="loader"></span> в HTML
 
-const lightbox = new SimpleLightbox('.gallery a');
+const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
 
 export function createGallery(images) {
-  const markup = images
-    .map(
-      img => `
-      <a href="${img.largeImageURL}">
-        <img src="${img.webformatURL}" alt="${img.tags}" />
-        <div>
-          <p>Likes: ${img.likes}</p>
-          <p>Views: ${img.views}</p>
-          <p>Comments: ${img.comments}</p>
-          <p>Downloads: ${img.downloads}</p>
+  const markup = images.map(image => {
+    return `
+      <li class="gallery-item">
+        <a class="gallery-link" href="${image.largeImageURL}">
+          <img
+            class="gallery-image"
+            src="${image.webformatURL}"
+            alt="${image.tags}"
+            loading="lazy"
+          />
+        </a>
+        <div class="info">
+          <p><b>Likes:</b> ${image.likes}</p>
+          <p><b>Views:</b> ${image.views}</p>
+          <p><b>Comments:</b> ${image.comments}</p>
+          <p><b>Downloads:</b> ${image.downloads}</p>
         </div>
-      </a>`
-    )
-    .join('');
-  galleryContainer.innerHTML = markup;
+      </li>
+    `;
+  }).join('');
+
+  galleryContainer.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
 }
 
@@ -30,9 +42,9 @@ export function clearGallery() {
 }
 
 export function showLoader() {
-  loader.classList.add('visible');
+  loader.classList.remove('is-hidden');
 }
 
 export function hideLoader() {
-  loader.classList.remove('visible');
+  loader.classList.add('is-hidden');
 }
