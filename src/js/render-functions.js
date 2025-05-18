@@ -1,10 +1,8 @@
-// src/js/render-functions.js
-
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const galleryContainer = document.querySelector('.gallery');
-const loader = document.querySelector('.loader'); // Додай <span class="loader"></span> в HTML
+const loader = document.querySelector('.loader'); 
 
 const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',

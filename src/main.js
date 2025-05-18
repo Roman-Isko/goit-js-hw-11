@@ -1,5 +1,3 @@
-// src/main.js
-
 import './css/styles.css';
 import { getImagesByQuery } from './js/pixabay-api';
 import {
@@ -42,3 +40,5 @@ form.addEventListener('submit', async e => {
     form.reset();
   }
 });
+
+
